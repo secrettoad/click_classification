@@ -37,7 +37,7 @@ Write code that can read the data from the database into memory, as a data frame
 
 Write code that, given the set of tables fetched from the previous step, will preprocess the data into a single, model ready dataset. This can include joins, one-hot encoding, etc.
     
-**Features are loaded and joined in the `_ingest` function within `ml/run_pipeline.py`**
+**Features are preprocessed/encoded and basic assumptions are made around missing values in `_train` function within `ml/run_pipeline.py`**
 
 NOTE: as stated before, do not spend time on exploratory analysis; it is not needed.
 Write code that can train a logistic regression model on a feature dataset (dataframe or otherwise) and also export this model in some consumable format.
