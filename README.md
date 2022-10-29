@@ -1,12 +1,12 @@
 # click classification demo
 
-###Overview:
+### Overview:
 1. Architecture choices - I would normally implement a system such as this using Kubeflow, Google Cloud Storage, Vertex AI and Google Cloud SQL. The requirements called for local testing, however and mocking these services locally would take more time than is scoped. Therefore, I've used Docker, running Postgres, Flask/Gunicorn and custom pipeline and artifact logic.
 2. Use - In order to run the two pipelines (one with regularization and one without), run `./spin_up.sh`. The resulting artifacts will be persisted to the `artifacts` directory. 
 
-###Granular Requirements:
+### Granular Requirements:
 
-####1: Creating a Feature Database
+#### 1: Creating a Feature Database
 We’d like to spin up a relational database that can store our data for training models. For this task, please perform the following:
 
 Write code (Dockerfile/docker-compose, a shell script, etc) that spins up a relational database we can use to store our feature data.  Please use an open source RDBMS such as SQLite.
@@ -29,7 +29,7 @@ Perform a load of the datasets into the tables, using the code you wrote in step
     
 **Features are loaded and joined in the `_ingest` function within `ml/run_pipeline.py`**
 
-####2: Model Training Functionality
+#### 2: Model Training Functionality
 Now that we have our feature data in a database, we can write code that can produce a model artifact that can be consumed by a model service. Please do the following:
 Write code that can read the data from the database into memory, as a data frame or similar tabular data structure suitable for model training.
     
@@ -54,7 +54,7 @@ Using the code designed in the previous step to build two logistic regression mo
 **A second function call to `run_pipeline` is made at the end of `ml/run_pipeline.py`, setting regularization to none as opposed to the default l2.**
 
 Again, we do NOT grade on quality, simply on having a set of models.
-####3: Build the Model Server
+#### 3: Build the Model Server
 The final piece is the model server. It is a web app that produces model predictions upon receiving a POST request.  It should also easily allow model swapping. 
 
 We need you to:
