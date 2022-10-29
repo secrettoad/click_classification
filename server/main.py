@@ -15,8 +15,7 @@ def infer():
         model = dill.load(f)
     X_pred = pd.DataFrame([[request.json[k] for k in request.json]], columns=[k for k in request.json])
     y_pred = model.predict(X_pred)
-    ##TODO start here - write tests and make sure it works
-    return [int(x) for x in y_pred]
+    return {'predictions': [int(x) for x in y_pred]}
 
 
 @app.route('/model', methods=["POST", "GET"])
