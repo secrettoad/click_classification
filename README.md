@@ -1,7 +1,7 @@
 # click classification demo
 
 ### Overview:
-1. Architecture choices - I would normally implement a system such as this using Kubeflow, Google Cloud Storage, Vertex AI and Google Cloud SQL. The requirements called for local testing, however and mocking these services locally would take more time than is scoped. Therefore, I've used Docker, running Postgres, Flask/Gunicorn and custom pipeline and artifact logic.
+1. Architecture choices - I would normally implement a system such as this using Kubeflow, Google Cloud Storage, Vertex AI, Google Cloud Functions, Google Cloud Run and Google Cloud SQL. The requirements called for an open source database, local testing and specific route structures within the server, however, and so I've used Docker, running Postgres, Flask/Gunicorn and custom pipeline and artifact logic.
 2. Use - In order to run the two pipelines (one with regularization and one without), run `./spin_up.sh`. The resulting artifacts will be persisted to the `artifacts` directory. 
 
 ### Granular Requirements:
