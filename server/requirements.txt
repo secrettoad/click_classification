@@ -1,0 +1,6 @@
+flask
+pg8000
+sklearn
+gunicorn
+dill
+pandas
